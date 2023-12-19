@@ -11,7 +11,7 @@
   >
     <div
       :class="classList.wrapper"
-      @mousedown="handleMousedown"
+      @click="handleclick"
       ref="wrapper"
 
       :tabindex="tabindex"
@@ -194,7 +194,7 @@
                 :class="classList.groupLabel(group)"
                 :data-pointed="isPointed(group)"
                 @mouseenter="setPointer(group, i)"
-                @mousedown.prevent="handleGroupClick(group)"
+                @click.prevent="handleGroupClick(group)"
               >
                 <slot name="grouplabel" :group="group" :is-selected="isSelected" :is-pointed="isPointed">
                   <span v-html="localize(group[groupLabel])"></span>
@@ -214,8 +214,7 @@
                   :data-selected="isSelected(option) || undefined"
                   :key="key"
                   @mouseenter="setPointer(option)"
-                  @mousedown.prevent="handleOptionClick(option)"
-
+                  @click.prevent="handleOptionClick(option)"
                   :id="ariaOptionId(option)"
                   :aria-selected="isSelected(option)"
                   :aria-label="ariaOptionLabel(localize(option[label]))"
@@ -236,7 +235,7 @@
               :data-selected="isSelected(option) || undefined"
               :key="key"
               @mouseenter="setPointer(option)"
-              @mousedown.prevent="handleOptionClick(option)"
+              @click.prevent="handleOptionClick(option)"
 
               :id="ariaOptionId(option)"
               :aria-selected="isSelected(option)"

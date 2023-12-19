@@ -3071,6 +3071,7 @@ function useDropdown (props, context, dep)
       return
     }
 
+    /* istanbul ignore next: popper mock */
     popper.value = createPopper(multiselect.value, dropdown.value, {
       strategy: hasFixedParent(multiselect.value) ? /* istanbul ignore next: UI feature */ 'fixed' : undefined,
       placement: openDirection.value,
@@ -4381,11 +4382,11 @@ const _hoisted_7 = ["innerHTML"];
 const _hoisted_8 = ["id"];
 const _hoisted_9 = ["id"];
 const _hoisted_10 = ["id", "aria-label", "aria-selected"];
-const _hoisted_11 = ["data-pointed", "onMouseenter", "onMousedown"];
+const _hoisted_11 = ["data-pointed", "onMouseenter", "onClick"];
 const _hoisted_12 = ["innerHTML"];
 const _hoisted_13 = ["aria-label"];
-const _hoisted_14 = ["data-pointed", "data-selected", "onMouseenter", "onMousedown", "id", "aria-selected", "aria-label"];
-const _hoisted_15 = ["data-pointed", "data-selected", "onMouseenter", "onMousedown", "id", "aria-selected", "aria-label"];
+const _hoisted_14 = ["data-pointed", "data-selected", "onMouseenter", "onClick", "id", "aria-selected", "aria-label"];
+const _hoisted_15 = ["data-pointed", "data-selected", "onMouseenter", "onClick", "id", "aria-selected", "aria-label"];
 const _hoisted_16 = ["innerHTML"];
 const _hoisted_17 = ["innerHTML"];
 const _hoisted_18 = ["value"];
@@ -4406,7 +4407,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [
     createElementVNode("div", mergeProps({
       class: _ctx.classList.wrapper,
-      onMousedown: _cache[9] || (_cache[9] = (...args) => (_ctx.handleMousedown && _ctx.handleMousedown(...args))),
+      onClick: _cache[9] || (_cache[9] = (...args) => (_ctx.handleclick && _ctx.handleclick(...args))),
       ref: "wrapper",
       tabindex: _ctx.tabindex,
       "aria-controls": !$props.searchable ? _ctx.ariaControls : undefined,
@@ -4632,7 +4633,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                         class: normalizeClass(_ctx.classList.groupLabel(group)),
                         "data-pointed": _ctx.isPointed(group),
                         onMouseenter: $event => (_ctx.setPointer(group, i)),
-                        onMousedown: withModifiers($event => (_ctx.handleGroupClick(group)), ["prevent"])
+                        onClick: withModifiers($event => (_ctx.handleGroupClick(group)), ["prevent"])
                       }, [
                         renderSlot(_ctx.$slots, "grouplabel", {
                           group: group,
@@ -4657,7 +4658,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                         "data-selected": _ctx.isSelected(option) || undefined,
                         key: key,
                         onMouseenter: $event => (_ctx.setPointer(option)),
-                        onMousedown: withModifiers($event => (_ctx.handleOptionClick(option)), ["prevent"]),
+                        onClick: withModifiers($event => (_ctx.handleOptionClick(option)), ["prevent"]),
                         id: _ctx.ariaOptionId(option),
                         "aria-selected": _ctx.isSelected(option),
                         "aria-label": _ctx.ariaOptionLabel(_ctx.localize(option[$props.label])),
@@ -4683,7 +4684,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                   "data-selected": _ctx.isSelected(option) || undefined,
                   key: key,
                   onMouseenter: $event => (_ctx.setPointer(option)),
-                  onMousedown: withModifiers($event => (_ctx.handleOptionClick(option)), ["prevent"]),
+                  onClick: withModifiers($event => (_ctx.handleOptionClick(option)), ["prevent"]),
                   id: _ctx.ariaOptionId(option),
                   "aria-selected": _ctx.isSelected(option),
                   "aria-label": _ctx.ariaOptionLabel(_ctx.localize(option[$props.label])),
